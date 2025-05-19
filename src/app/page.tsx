@@ -1,5 +1,7 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ProfileRound from './components/ProfileRound'
+
 import About from './about/About'
 import Contact from './contacts/Contacts'
 import Projects from './projects/Projects'
@@ -15,8 +17,15 @@ export default function Home() {
         </main>
 
         <main className="min-h-screen flex flex-col items-center justify-center bg-red-50 from-red-50">
-          <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
-          <p className="text-gray-700">Explore my projects, skills, and contact information below.</p>
+          <div className="w-full flex flex-row items-center justify-between px-96 pb-72">
+            <div className="flex flex-col items-start">
+              <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
+              <p className="text-gray-700 mb-4">Explore my projects, skills, and contact information below.</p>
+            </div>
+            <div className="flex flex-col items-end">
+              <ProfileRound />
+            </div>
+          </div>
         </main>
         <main>
           <div>
