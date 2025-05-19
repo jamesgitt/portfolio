@@ -1,6 +1,6 @@
 export default function Projects() {
     return (
-        <main className="min-h-screen flex flex-col items-center justify-center bg-gray-300">
+        <main className="min-h-screen flex flex-col items-center justify-center bg-red-300">
             <h1 className="text-4xl font-bold mb-4">Projects</h1>
             <ul className="text-lg text-gray-800 space-y-4">
                 <li>

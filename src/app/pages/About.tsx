@@ -1,6 +1,6 @@
 export default function About() {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+      <main className="min-h-screen flex flex-col items-center justify-center bg-red-100 from-red-100">
         <h1 className="text-4xl font-bold mb-4">About Me</h1>
         <p className="text-gray-700">I am a web developer passionate about building beautiful websites.</p>
       </main>
