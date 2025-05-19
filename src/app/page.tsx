@@ -9,17 +9,17 @@ export default function Home() {
     return (
       <>
         <main className="min-h-screen flex flex-col items-center justify-center bg-red-50 from-current">
-        <div className="sticky top-0 z-50">
-          <Navbar />
-        </div>
-          <h1 className="text-4xl font-bold mb-4">---------</h1>
-          <p className="text-lg text-gray-700">Welcome to my Next.js portfolio!</p>
+          <div className="sticky top-0 z-50">
+            <Navbar />
+          </div>
+            <h1 className="text-4xl font-bold mb-4">---------</h1>
+            <p className="text-lg text-gray-700">Welcome to my Next.js portfolio!</p>
 
-        <About />
-        <Contact />
-        <Projects />
-        <Skills />
-        <Footer />
+          <About />
+          <Contact />
+          <Projects />
+          <Skills />
+          <Footer />
         </main>
       </>
     );
