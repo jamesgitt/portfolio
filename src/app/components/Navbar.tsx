@@ -6,10 +6,10 @@ export default function Navbar() {
         <span className="font-bold text-xl">My Portfolio</span>
         <div>
           <Link href="/" className="mx-2 text-gray-700 hover:text-blue-600">Home</Link>
-          <Link href="/pages/About" className="mx-2 text-gray-700 hover:text-blue-600">About</Link>
-          <Link href="/pages/Projects" className="mx-2 text-gray-700 hover:text-blue-600">Projects</Link>
-          <Link href="/pages/Contacts" className="mx-2 text-gray-700 hover:text-blue-600">Contact</Link>
-          <Link href="/pages/Skills" className="mx-2 text-gray-700 hover:text-blue-600">Skills</Link>
+          <Link href="/about/About" className="mx-2 text-gray-700 hover:text-blue-600">About</Link>
+          <Link href="/projects/Projects" className="mx-2 text-gray-700 hover:text-blue-600">Projects</Link>
+          <Link href="/contacts/Contacts" className="mx-2 text-gray-700 hover:text-blue-600">Contact</Link>
+          <Link href="/skills/Skills" className="mx-2 text-gray-700 hover:text-blue-600">Skills</Link>
         </div>
       </nav>
     );

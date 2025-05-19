@@ -1,9 +1,9 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import About from './pages/About';
-import Contact from './pages/Contacts'
-import Projects from './pages/Projects'
-import Skills from './pages/Skills'
+import About from './about/About';
+import Contact from './contacts/Contacts'
+import Projects from './projects/Projects'
+import Skills from './skills/Skills'
 
 export default function Home() {
     return (
