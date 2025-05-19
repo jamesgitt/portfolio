@@ -12,7 +12,7 @@ export default function Home() {
           <div className="sticky top-0 z-50">
             <Navbar />
           </div>
-            <h1 className="text-4xl font-bold mb-4 right-1">---------</h1>
+            <h1 className="text-4xl font-bold mb-4 object-right-top">---------</h1>
             <p className="text-lg text-gray-700">Welcome to my Next.js portfolio!</p>
 
           <About />
