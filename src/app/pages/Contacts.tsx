@@ -3,7 +3,7 @@ export default function Contacts() {
         <main className="min-h-screen flex flex-col items-center justify-center bg-red-200">
             <h1 className="text-4xl font-bold mb-4">Contact Me</h1>
             <p className="text-gray-700 mb-6">
-                I'd love to hear from you! Feel free to reach out through any of the methods below:
+                I would love to hear from you! Feel free to reach out through any of the methods below:
             </p>
             <ul className="text-lg text-gray-800 space-y-2">
                 <li>

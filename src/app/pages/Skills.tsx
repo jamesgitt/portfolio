@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Skills() {
     return (
         <main className="min-h-screen flex flex-col items-center justify-center bg-red-400">
@@ -7,7 +9,7 @@ export default function Skills() {
                     <span className="font-semibold">Frontend Development:</span> Proficient in React, Next.js, and TypeScript for building modern, responsive web applications.
                 </li>
                 <li>
-                    <span className="font-semibold">Styling & UI:</span> Experienced with Tailwind CSS and CSS3 for crafting clean, accessible, and visually appealing interfaces.
+                    <span className="font-semibold">Styling &amp; UI:</span> Experienced with Tailwind CSS and CSS3 for crafting clean, accessible, and visually appealing interfaces.
                 </li>
                 <li>
                     <span className="font-semibold">Version Control:</span> Skilled in using Git and GitHub for collaborative development and code management.
