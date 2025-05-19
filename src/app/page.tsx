@@ -8,7 +8,7 @@ import Skills from './skills/Skills'
 export default function Home() {
     return (
       <>
-        <main className="min-h-screen flex flex-col bg-red-50 from-current">
+        <main className="min-h-screen flex flex-col bg-red-500">
           <div className="sticky top-0 z-50">
             <Navbar />
           </div>
