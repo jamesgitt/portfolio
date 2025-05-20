@@ -6,6 +6,10 @@ import BouncingText from './components/BouncingText'
 import TypingText from './components/TypingText'
 import FadingText from './components/FadingText'
 
+import { AIIcon } from './icons/AI-Icon'
+import { BackendIcon } from './icons/Backend-Icon'
+import { DataAnalysisIcon } from './icons/DataAnalysisIcon'
+
 import About from './about/page'
 import Contact from './contacts/page'
 import Projects from './projects/page'
@@ -29,18 +33,28 @@ export default function Home() {
 
         {/* Add top padding to prevent overlap with fixed navbar */}
         <main
-          className="min-h-screen flex flex-col items-center justify-center bg-red-50 from-red-50"
+          className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-red-50 to-red-300"
           style={{ paddingTop: navbarHeight }}
         >
           <div className="w-full flex flex-row items-center gap-4 pl-32">
             <div className="flex flex-col items-start pb-96">
-              <h1 className="text-6xl font-bold mb-4 font-serif">AI | Backend Developing | Data Analysis</h1>
-              <p className="text-black mt-2 text-xm font-serif max-w-xm">
+              <h1 className="text-6xl font-bold mb-4 font-serif text-center pt-48">AI | Backend Developing | Data Analysis</h1>
+              <p className="text-red-900 font-bold mt-2 text-xm font-serif max-w-xm text-center">
                 | I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact. |
               </p>
-              <img></img>
+              <div className="flex flex-row items-center gap-2 mt-4 pl-4">
+                <div className="w-36 h-30 drop-shadow-xl">
+                  <AIIcon />
+                </div>
+                <div className="w-36 h-30 drop-shadow-xl">
+                  <BackendIcon />
+                </div>
+                <div className="w-36 h-30 drop-shadow-xl">
+                  <DataAnalysisIcon />
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col items-end pr-32">
+            <div className="flex flex-col items-end pr-32 pb-32">
               <ProfileRound />
             </div>
           </div>
