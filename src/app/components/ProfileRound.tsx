@@ -1,11 +1,14 @@
 export default function ProfileRound() {
     return (
-        <div className="flex justify-center items-center py-8">
-            <img
-                src="/profile.jpg"
-                alt="Profile"
-                className="w-64 h-64 rounded-full shadow object-cover border-4 border-black"
-            />
+        <div className="justify-center items-center py-8">
+            <div className="w-[38rem] h-[48rem] rounded-full overflow-hidden border-4 border-black shadow flex items-center justify-center">
+                <img
+                    src="/images/ProfilePicture.jpg"
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                    style={{ display: 'block' }}
+                />
+            </div>
         </div>
     );
 }
