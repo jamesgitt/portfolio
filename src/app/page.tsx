@@ -6,10 +6,10 @@ import BouncingText from './components/BouncingText'
 import TypingText from './components/TypingText'
 import FadingText from './components/FadingText'
 
-import About from './about/About'
-import Contact from './contacts/Contacts'
-import Projects from './projects/Projects'
-import Skills from './skills/Skills'
+import About from './about/page'
+import Contact from './contacts/page'
+import Projects from './projects/page'
+import Skills from './skills/page'
 
 export default function Home() {
     // Height of the navbar (adjust if you change Navbar's height)
@@ -34,10 +34,9 @@ export default function Home() {
         >
           <div className="w-full flex flex-row items-center gap-4 pl-32">
             <div className="flex flex-col items-start pb-96">
-              <h1 className="text-6xl font-bold mb-4 font-serif">Welcome to My Portfolio</h1>
-              <p className="text-black mb-4 text-xm font-serif">
-                <span>Explore my projects, skills, and contact information below.</span>
-                <span></span>
+              <h1 className="text-6xl font-bold mb-4 font-serif">AI | Backend Developing | Data Analysis</h1>
+              <p className="text-black mt-2 text-xm font-serif max-w-xm">
+                | I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact. |
               </p>
               <img></img>
             </div>

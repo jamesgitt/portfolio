@@ -11,10 +11,10 @@ export default function Navbar() {
         </div>
         <div className="flex items-center space-x-6">
           <Link href="/" className="text-lg text-black hover:font-bold font-serif">Home</Link>
-          <Link href="/about/About" className="text-lg text-black hover:font-bold font-serif">About</Link>
-          <Link href="/projects/Projects" className="text-lg text-black hover:font-bold font-serif">Projects</Link>
-          <Link href="/contacts/Contacts" className="text-lg text-black hover:font-bold font-serif">Contact</Link>
-          <Link href="/skills/Skills" className="text-lg text-black hover:font-bold font-serif">Skills</Link>
+          <Link href="/about" className="text-lg text-black hover:font-bold font-serif">About</Link>
+          <Link href="/projects" className="text-lg text-black hover:font-bold font-serif">Projects</Link>
+          <Link href="/contacts" className="text-lg text-black hover:font-bold font-serif">Contact</Link>
+          <Link href="/skills" className="text-lg text-black hover:font-bold font-serif">Skills</Link>
         </div>
       </nav>
     );
