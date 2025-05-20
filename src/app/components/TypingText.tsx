@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 interface TypingTextProps {
   text: string;
@@ -20,52 +20,63 @@ export default function TypingText({
   const [displayedText, setDisplayedText] = useState('');
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const currentIndexRef = useRef(0);
+
+  // Clear intervals and timeouts
+  const clearTimers = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  }, []);
+
+  // Typing function
+  const type = useCallback(() => {
+    clearTimers();
+    intervalRef.current = setInterval(() => {
+      if (currentIndexRef.current < text.length) {
+        setDisplayedText(text.slice(0, currentIndexRef.current + 1));
+        currentIndexRef.current += 1;
+      } else {
+        clearTimers();
+        timeoutRef.current = setTimeout(() => {
+          erase();
+        }, pause);
+      }
+    }, speed);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, speed, pause, clearTimers]);
+
+  // Erasing function
+  const erase = useCallback(() => {
+    clearTimers();
+    intervalRef.current = setInterval(() => {
+      if (currentIndexRef.current > 0) {
+        setDisplayedText((prev) => prev.slice(0, -1));
+        currentIndexRef.current -= 1;
+      } else {
+        clearTimers();
+        timeoutRef.current = setTimeout(() => {
+          type();
+        }, erasePause);
+      }
+    }, eraseSpeed);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [eraseSpeed, erasePause, type, clearTimers]);
 
   useEffect(() => {
-    let currentIndex = 0;
-    let isErasing = false;
-
-    const type = () => {
-      intervalRef.current = setInterval(() => {
-        if (currentIndex < text.length) {
-          setDisplayedText(text.slice(0, currentIndex + 1));
-          currentIndex += 1;
-        } else {
-          clearInterval(intervalRef.current!);
-          timeoutRef.current = setTimeout(() => {
-            isErasing = true;
-            erase();
-          }, pause);
-        }
-      }, speed);
-    };
-
-    // Erase by character (removing one character at a time from the end)
-    const erase = () => {
-      intervalRef.current = setInterval(() => {
-        if (currentIndex > 0) {
-          setDisplayedText(prev => prev.slice(0, -1));
-          currentIndex -= 1;
-        } else {
-          clearInterval(intervalRef.current!);
-          timeoutRef.current = setTimeout(() => {
-            isErasing = false;
-            type();
-          }, erasePause);
-        }
-      }, eraseSpeed);
-    };
-
     setDisplayedText('');
-    currentIndex = 0;
-    isErasing = false;
+    currentIndexRef.current = 0;
     type();
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      clearTimers();
     };
-  }, [text, speed, pause, eraseSpeed, erasePause]);
+  }, [text, speed, pause, eraseSpeed, erasePause, type, clearTimers]);
 
   return <div className="text-xl font-serif">{displayedText}|</div>;
 }
