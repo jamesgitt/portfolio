@@ -1,10 +1,6 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ProfileRound from './components/ProfileRound'
-import AnimatedText from './components/FadeInText'
-import BouncingText from './components/BouncingText'
-import TypingText from './components/TypingText'
-import FadingText from './components/FadingText'
 
 import { AIIcon } from './icons/AI-Icon'
 import { BackendIcon } from './icons/Backend-Icon'
