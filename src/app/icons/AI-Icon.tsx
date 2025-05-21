@@ -8,9 +8,6 @@ export function AIIcon() {
         xmlns="http://www.w3.org/2000/svg"
         className="drop-shadow-md"
       >
-        {/* Background Circle */}
-        <circle cx="60" cy="60" r="55" fill="#f8fafc" stroke="#818cf8" strokeWidth="2" />
-
         {/* Circle Face (slightly bigger) */}
         <circle cx="60" cy="60" r="32" fill="#818cf8" stroke="#4f46e5" strokeWidth="2" />
 

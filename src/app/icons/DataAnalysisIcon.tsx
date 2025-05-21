@@ -8,9 +8,6 @@ export function DataAnalysisIcon() {
         xmlns="http://www.w3.org/2000/svg"
         className="drop-shadow-md"
       >
-        {/* Background Circle */}
-        <circle cx="60" cy="60" r="55" fill="#f8fafc" stroke="#ec4899" strokeWidth="2" />
-
         {/* Chart Grid */}
         <path
           d="M30 85H90M30 70H90M30 55H90M30 40H90M30 40V85M45 40V85M60 40V85M75 40V85M90 40V85"

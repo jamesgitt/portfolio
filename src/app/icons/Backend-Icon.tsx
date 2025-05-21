@@ -8,9 +8,6 @@ export function BackendIcon() {
         xmlns="http://www.w3.org/2000/svg"
         className="drop-shadow-md"
         >
-        {/* Background Circle */}
-        <circle cx="60" cy="60" r="55" fill="#f8fafc" stroke="#64748b" strokeWidth="2" />
-
         {/* Server Rack */}
         <rect x="30" y="35" width="60" height="50" rx="4" fill="#cbd5e1" stroke="#64748b" strokeWidth="2" />
 
