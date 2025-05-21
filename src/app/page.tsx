@@ -20,9 +20,6 @@ export default function Home() {
 
     return (
       <>
-      
-
-
         {/* Navbar at the top, fixed */}
         <div className="w-full fixed top-0 left-0 z-50">
           <Navbar />
@@ -35,17 +32,17 @@ export default function Home() {
           className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-red-50 to-red-300"
           style={{ paddingTop: navbarHeight }}
         >
-          <div className="w-full flex flex-row items-center gap-4 pl-32">
+          <div className="w-full flex flex-row items-center gap-8 pl-28">
             <div className="flex flex-col items-center pb-96">
               <div className="flex flex-col items-center pt-48" style={{ fontFamily: 'Cambria, serif' }}>
                 <PulsatingText text="AI" 
                   className="text-8xl font-bold mx-10 my-2 text-center" />
                 
                 <PulsatingText text="BACKEND DEVELOPING" 
-                  className="text-4xl font-bold mx-10 my-2 text-center" />
+                  className="text-4xl mx-10 my-2 text-center" />
 
                 <PulsatingText text="DATA ANALYSIS" 
-                  className="text-4xl font-bold mx-10 my-2 text-center" />
+                  className="text-4xl mx-10 my-2 text-center" />
 
                 <PulsatingText text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact." 
                 className="text-red-900 text-left text-justify text-base font-bold max-w-xm my-4 w-92 mx-4" />
@@ -62,6 +59,7 @@ export default function Home() {
                   <div className="w-36 h-30 drop-shadow-xl">
                     <DataAnalysisIcon />
                   </div>
+                  
               </div>
               </PulsateElement>
             </div>
@@ -73,11 +71,13 @@ export default function Home() {
 
 
 
-        <main>
-          <div>
-            <About />
-          </div>
-        </main>
+        <section id="about">
+          <main>
+            <div>
+              <About />
+            </div>
+          </main>
+        </section>
 
 
 
