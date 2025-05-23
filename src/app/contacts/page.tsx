@@ -1,6 +1,6 @@
 export default function Contacts() {
     return (
-        <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-red-600 to-red-900">
+        <main className="web-bg flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold mb-4">Contact Me</h1>
             <p className="text-gray-700 mb-6">
                 I would love to hear from you! Feel free to reach out through any of the methods below:

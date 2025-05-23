@@ -82,7 +82,7 @@ export default function TypingText({
   }, [text, typingSpeed, typingPause, erasingSpeed, erasingPause]);
 
   return (
-    <div className="text-xl font-serif flex items-center">
+    <div className={className}>
       <span style={{ whiteSpace: 'pre' }}>
         {text.slice(0, displayed)}
       </span>

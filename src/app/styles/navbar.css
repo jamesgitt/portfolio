@@ -1,0 +1,21 @@
+.colNav{
+    font-size: 1.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    padding-inline: 2px;
+    transition: background 0.2s;
+}
+
+.colNavHome{
+    font-size: 3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    padding-inline: 2px;
+    transition: background 0.2s;
+}
+
+.colNav:hover{
+    font-style: bold;
+    opacity: 0.5;
+    color: rgb(110, 110, 110);
+}

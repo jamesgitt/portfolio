@@ -1,65 +1,107 @@
 "use client"
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from './NavigationMenu';
+import '../styles/navbar.css'
 import TypingText from './TypingText';
-import { useEffect, useState } from 'react';
 
 export default function Navbar() {
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const navRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
-    let ticking = false;
+    const nav = navRef.current;
+    if (!nav) return;
+
+    let lastKnownScrollY = window.scrollY;
+
+    // Set initial style
+    nav.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
 
     const handleScroll = () => {
-      if (!ticking) {
+      lastKnownScrollY = window.scrollY;
+
+      if (!ticking.current) {
         window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          if (currentScrollY < 10) {
-            setShow(true);
-          } else if (currentScrollY > lastScrollY) {
-            // Scrolling down
-            setShow(false);
+          if (lastKnownScrollY > lastScrollY.current && lastKnownScrollY > 10) {
+            // Scrolling down, hide navbar
+            nav.style.transform = 'translateY(-100%)';
           } else {
-            // Scrolling up
-            setShow(true);
+            // Scrolling up, show navbar
+            nav.style.transform = 'translateY(0)';
           }
-          setLastScrollY(currentScrollY);
-          ticking = false;
+          lastScrollY.current = lastKnownScrollY;
+          ticking.current = false;
         });
-        ticking = true;
+        ticking.current = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-    return () => window.removeEventListener('scroll', handleScroll);
-    // eslint-disable-next-line
-  }, [lastScrollY]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <nav
-      style={{ fontFamily: 'Cambria, serif' }}
-      className={`bg-red-100 bg-opacity-5 backdrop-blur-sm shadow p-4 flex justify-end fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        show ? 'translate-y-0' : '-translate-y-full'
-      }`}
+      ref={navRef}
+      style={{ fontFamily: 'Cambria, serif', transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
+      className="bg-red-100 bg-opacity-5 backdrop-blur-sm shadow p-2 flex flex-row items-center justify-between fixed top-0 left-0 w-full z-50"
     >
-      <div className="flex flex-row items-center space-x-2">
-        <TypingText text="Get to know me" className="" />
-        <span className="mx-2 self-stretch border-l-4 border-black"></span>
-        <p className="text-4xl font-bold">JAMES</p>
-      </div>
-
-      <div className="flex-row items ml-auto">
-        <div className="bg-red-900 h-12 border-solid border-black border-2 drop-shadow-md rounded-xl flex items-center space-x-6">
-          <Link href="#top" scroll={true} className="text-lg text-white hover:font-bold pl-4">
-            Home
-          </Link>
-          <Link href="#about" scroll={true} className="text-lg text-white hover:font-bold">
-            About
-          </Link>
-          <Link href="/contacts" className="text-lg text-white hover:font-bold pr-4">
-            Contact
-          </Link>
+      <div className="flex flex-row w-full items-center justify-between max-w-6xl mx-auto">
+        {/* Branding section */}
+        <div className="flex flex-row items-center space-x-4 ml-0 mr-auto">
+          <TypingText text="Get to know me" className="text-xl text-white items-center"/>
+          <span className="h-10 w-1 border-solid border-x-2 border-white"></span>
+          <p className="text-white text-3xl font-bold">JAMES</p>
+        </div>
+        {/* Navigation links */}
+        <div className="bg-red-700 border-solids drop-shadow-md rounded-lg flex flex-row items-center justify-center space-x-4 py-2 px-4 mx-0">
+          <NavigationMenu orientation="horizontal">
+            <NavigationMenuList className="flex flex-row items-center justify-center gap-2">
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="#top"
+                    scroll={true}
+                    className="colNavHome flex items-center gap-2 px-4 py-2 min-w-[120px] min-h-[36px] text-white text-base font-serif transition-colors duration-200 hover:bg-red-800/60 hover:text-red-200 focus:text-red-300 rounded-lg text-left shadow-sm"
+                    style={{ fontFamily: 'Cambria, serif' }}
+                  >
+                    <span role="img" aria-label="Home" className="text-xl">🏠</span>
+                    <span>Home</span>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="#about"
+                    scroll={true}
+                    className="colNav flex items-center gap-1 px-2 py-1 w-full text-white text-sm font-serif transition-colors duration-200 hover:bg-red-700/60 hover:text-red-200 focus:text-red-300 rounded text-left"
+                    style={{ fontFamily: 'Cambria, serif' }}
+                  >
+                    <span role="img" aria-label="About" className="text-base">👤</span>
+                    <span>About</span>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/contacts"
+                    className="colNav flex items-center gap-1 px-2 py-1 w-full text-white text-sm font-serif transition-colors duration-200 hover:bg-red-700/60 hover:text-red-200 focus:text-red-300 rounded text-left"
+                    style={{ fontFamily: 'Cambria, serif' }}
+                  >
+                    <span role="img" aria-label="Contact" className="text-base">✉️</span>
+                    <span>Contact</span>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </div>
     </nav>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Projects() {
     return (
-        <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-red-900 to-pink-800">
+        <main className="web-bg flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold mb-4">Projects</h1>
             <ul className="text-lg text-gray-800 space-y-4">
                 <li>

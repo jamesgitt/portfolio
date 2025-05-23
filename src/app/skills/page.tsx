@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Skills() {
     return (
-        <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-800 to-pink-400">
+        <main className="web-bg flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold mb-4">Skills</h1>
             <ul className="text-lg text-gray-800 space-y-4">
                 <li>
