@@ -36,9 +36,12 @@ html{
 }
 
 .textHeaderColor {
-  color: rgb(230, 145, 145);
+  color: rgb(255, 219, 219);
 }
 
-.textParaColor{
+.textParagraph{
   color: rgb(255, 219, 219);
+  text-align: justify;
+  font-size: 1rem;
+  letter-spacing: -0.05rem;
 }

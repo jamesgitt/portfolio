@@ -1,6 +1,6 @@
 export default function About() {
     return (
-      <main className="web-bg flex flex-col items-center justify-center">
+      <main className="webBg flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold mb-4">About Me</h1>
         <p className="text-gray-700">I am a web developer passionate about building beautiful websites.</p>
       </main>

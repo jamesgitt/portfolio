@@ -32,43 +32,53 @@ export default function Home() {
 
         {/* Add top padding to prevent overlap with fixed navbar */}
         <main
-          className="web-bg"
+          className="webBg"
           style={{ paddingTop: navbarHeight }}
         >
           <div className="w-full flex flex-row items-center gap-8 pl-28">
-            <div className="flex flex-col items-center pb-96">
-              <div className="flex flex-col items-center" style={{ fontFamily: 'Cambria, serif' }}>
-                <PulsatingText text="AI" 
-                  className="textHeaderColor text-8xl font-bold mx-10 my-2 text-center" />
-                
-                <PulsatingText text="BACKEND DEVELOPING" 
-                  className="textHeaderColor text-4xl mx-10 my-2 text-center" />
 
-                <PulsatingText text="DATA ANALYSIS" 
-                  className="textHeaderColor text-4xl mx-10 my-2 text-center" />
+            <div className="homePageCard  backdrop-blur-sm">
 
-                <PulsatingText text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact." 
-                className="textParaColor text-justify text-base max-w-xm my-4 w-92 mx-4" />
-              </div>
-              <PulsateElement>
-                <div className="flex flex-row items-center gap-2 mt-4 pl-4">
+
+              <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center">
+                  <PulsatingText text="AI" 
+                    className="textHeaderColor text-8xl font-bold mx-10 my-2 text-center" />
                   
-                  <div className="w-36 h-30 drop-shadow-xl">
-                    <AIIcon />
-                  </div>
-                  <div className="w-36 h-30 drop-shadow-xl">
-                    <BackendIcon />
-                  </div>
-                  <div className="w-36 h-30 drop-shadow-xl">
-                    <DataAnalysisIcon />
-                  </div>
-                  
+                  <PulsatingText text="BACKEND DEVELOPING" 
+                    className="textHeaderColor text-4xl px-10 py-2 text-center" />
+
+                  <PulsatingText text="DATA ANALYSIS" 
+                    className="textHeaderColor text-4xl mx-10 my-2 text-center" />
+
+                  <PulsatingText text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact." 
+                  className="textParagraph py-4 px-4" />
+                </div>
+                <PulsateElement>
+                  <div className="flex flex-row items-center pl-8">
+                    
+                    <div className="w-36 h-30 drop-shadow-xl">
+                      <AIIcon />
+                    </div>
+                    <div className="w-36 h-30 drop-shadow-xl">
+                      <BackendIcon />
+                    </div>
+                    <div className="w-36 h-30 drop-shadow-xl">
+                      <DataAnalysisIcon />
+                    </div>
+                </div>
+                </PulsateElement>
               </div>
-              </PulsateElement>
+
+
             </div>
-            <div className="flex flex-col items-end pr-32 pb-64">
+            
+
+            <div className="flex flex-col items-end">
               <ProfileRound />
             </div>
+
+
           </div>
         </main>
 
