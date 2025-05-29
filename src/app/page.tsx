@@ -35,42 +35,47 @@ export default function Home() {
             className="webBg flex flex-col items-center min-h-screen"
             style={{ paddingTop: navbarHeight }}
           >
-                <div className="grid flex-col items-center pb-48">
-                  <div className="ml-6 =mb-4 flex flex-row items-center justify-center w-full">
-                    <PulsatingText
-                      text="AI"
-                      className="text-indigo-500 font-black text-8xl my-2 text-left"
-                    />
-                    <span className="text-4xl mx-10 text-red-900 font-black">-</span>
-                    <PulsatingText
-                      text="BACKEND DEVELOPING"
-                      className="text-gray-800 max-w-56 font-black text-4xl py-2 text-left"
-                    />
-                    <span className="text-4xl mx-10  text-red-900 font-black">-</span>
-                    <PulsatingText
-                      text="DATA ANALYSIS"
-                      className="text-pink-500 max-w-48 font-black text-4xl my-2 text-left"
-                    />
-                  </div>
+            <div className="grid items-center pb-48 gap-8">
+              {/* Left column: Headline and icons */}
+              <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-row items-center justify-center flex-wrap mb-8">
                   <PulsatingText
-                      text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact."
-                      className="textParagraph max-w-[40rem] font-semibold"
-                    />
-
-                  <PulsateElement>
-                    <div className="flex flex-row items-center justify-center gap-28 mt-2">
-                      <div className="icon flex items-center justify-center">
-                        <AIIcon />
-                      </div>
-                      <div className="icon flex items-center justify-center">
-                        <BackendIcon />
-                      </div>
-                      <div className="icon flex items-center justify-center">
-                        <DataAnalysisIcon />
-                      </div>
-                    </div>
-                  </PulsateElement>
+                    text="AI"
+                    className="text-indigo-500 font-black text-8xl my-2 text-left"
+                  />
+                  <span className="text-4xl mx-6 text-red-900 font-black">-</span>
+                  <PulsatingText
+                    text="BACKEND DEVELOPING"
+                    className="text-gray-800 max-w-56 font-black text-4xl py-2 text-left"
+                  />
+                  <span className="text-4xl mx-6 text-red-900 font-black">-</span>
+                  <PulsatingText
+                    text="DATA ANALYSIS"
+                    className="text-pink-500 max-w-48 font-black text-4xl my-2 text-left"
+                  />
                 </div>
+                {/* Right column: Description */}
+              <div className="flex items-center justify-center">
+                <PulsatingText
+                  text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact."
+                  className="textParagraph max-w-[40rem] font-semibold"
+                />
+              </div>
+                <PulsateElement>
+                  <div className="flex flex-row items-center justify-center gap-16 mt-2">
+                    <div className="icon flex items-center justify-center">
+                      <AIIcon />
+                    </div>
+                    <div className="icon flex items-center justify-center">
+                      <BackendIcon />
+                    </div>
+                    <div className="icon flex items-center justify-center">
+                      <DataAnalysisIcon />
+                    </div>
+                  </div>
+                </PulsateElement>
+              </div>
+            </div>
           </main>
         </section>
 
