@@ -15,25 +15,29 @@ export function DataAnalysisIcon() {
           strokeWidth="1"
         />
 
-        {/* Bar Chart */}
-        <rect x="32" y="65" width="10" height="20" rx="1" fill="#f472b6" />
-        <rect x="47" y="55" width="10" height="30" rx="1" fill="#f472b6" />
-        <rect x="62" y="45" width="10" height="40" rx="1" fill="#f472b6" />
-        <rect x="77" y="35" width="10" height="50" rx="1" fill="#f472b6" />
+        {/* Bar Chart with Line Chart and Data Points inside */}
+        <g>
+          {/* Bar Chart */}
+          <rect x="32" y="65" width="10" height="20" rx="1" fill="#f472b6" />
+          <rect x="47" y="55" width="10" height="30" rx="1" fill="#f472b6" />
+          <rect x="62" y="45" width="10" height="40" rx="1" fill="#f472b6" />
+          <rect x="77" y="35" width="10" height="50" rx="1" fill="#f472b6" />
 
-        {/* Line Chart */}
-        <path
-          d="M30 95C30 95 40 90 50 92C60 94 70 85 80 80C90 75 90 75 90 75"
-          stroke="#db2777"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
+          {/* Line Chart (now visually inside the bar chart area) */}
+          <path
+            d="M37 83C37 83 52 75 57 65C62 55 67 55 82 45"
+            stroke="#db2777"
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
 
-        {/* Data Points */}
-        <circle cx="30" cy="95" r="3" fill="#db2777" />
-        <circle cx="50" cy="92" r="3" fill="#db2777" />
-        <circle cx="70" cy="85" r="3" fill="#db2777" />
-        <circle cx="90" cy="75" r="3" fill="#db2777" />
+          {/* Data Points (aligned with the new line) */}
+          <circle cx="37" cy="83" r="3" fill="#db2777" />
+          <circle cx="57" cy="65" r="3" fill="#db2777" />
+          <circle cx="67" cy="55" r="3" fill="#db2777" />
+          <circle cx="82" cy="45" r="3" fill="#db2777" />
+        </g>
       </svg>
     )
   }

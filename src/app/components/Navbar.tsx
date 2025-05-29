@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from './NavigationMenu';
 import '../styles/navbar.css'
 import TypingText from './TypingText';
+import PulsateElement from './PulsateElement';
 
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
@@ -48,76 +49,137 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      style={{ fontFamily: 'Cambria, serif', transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
-      className="navBackdrop backdrop-blur-sm p-2 flex flex-row items-center justify-between fixed top-0 left-0 w-full z-50"
+      className="navBackdrop m-0 flex flex-row fixed left-0 right-0 w-full top-0 z-50 transition-transform duration-500"
     >
-      <div className="flex flex-row w-full items-center max-w-6xl mx-auto">
+      <div className="ml-4 flex flex-row w-full items-center max-w-32 mx-auto">
         {/* Branding section */}
-          <TypingText text="Get to know me" className="text-xl text-red-50 items-center"/>
-          <span className="h-10 w-1 border-solid border-x-2 mx-2 border-red-50"></span>
-          <p className="text-red-50 text-5xl font-bold">JAMES</p>
+        <TypingText text="Get to know me" className="typingNavText font-semibold"/>
+        <span className="h-12 w-1 border-solid border-x-2 mx-2 border-red-900"></span>
+        <p className="logoNavText font-black ">JAMES</p>
       </div>
       <div>
         {/* Navigation links */}
-        <div className="border-solids drop-shadow-md rounded-lg flex flex-row items-center justify-center space-x-4 py-2 px-4 mx-0">
+        <div className="border-solid drop-shadow-md rounded-lg flex flex-row py-2 px-4 mx-0">
           <NavigationMenu orientation="horizontal">
-            <NavigationMenuList className="flex flex-row items-center justify-center gap-2">
+
+
+            <div className="flex flex-1 justify-center">
+              <NavigationMenuList className="flex flex-row gap-2">
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="#Home"
+                      scroll={true}
+                      className="navText flex transition-colors duration-200"
+                    >
+                      <span role="img" aria-label="Home" className="flex flex-row navText">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox= "0 0 24 24" fill="currentColor" className="size-7">
+                          <path d="M19.006 3.705a.75.75 0 1 0-.512-1.41L6 6.838V3a.75.75 0 0 0-.75-.75h-1.5A.75.75 0 0 0 3 3v4.93l-1.006.365a.75.75 0 0 0 .512 1.41l16.5-6Z" />
+                          <path fillRule="evenodd" d="M3.019 11.114 18 5.667v3.421l4.006 1.457a.75.75 0 1 1-.512 1.41l-.494-.18v8.475h.75a.75.75 0 0 1 0 1.5H2.25a.75.75 0 0 1 0-1.5H3v-9.129l.019-.007ZM18 20.25v-9.566l1.5.546v9.02H18Zm-9-6a.75.75 0 0 0-.75.75v4.5c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75H9Z" clipRule="evenodd" />
+                        </svg>
+                        <span className="navText">Home</span>
+                      </span>
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="#About"
+                      scroll={true}
+                      className="navText flex transition-colors duration-200"
+                    >
+                      <span role="img" aria-label="Home" className="flex flex-row navText">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-7">
+                          <path fillRule="evenodd" d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15Zm4.125 3a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.351.92 7.47 7.47 0 0 1-3.522.877 7.47 7.47 0 0 1-3.522-.877.75.75 0 0 1-.351-.92ZM15 8.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15ZM14.25 12a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H15a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15Z" clipRule="evenodd" />
+                        </svg>
+                        <span className="navText">About</span> 
+                      </span>                 
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="#Contacts"
+                      className="navText flex transition-colors duration-200"
+                    >
+                      <span role="img" aria-label="Contact" className="flex flex-row navText">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  className="size-7">
+                          <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                          <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                        </svg>
+                        <span className="navText">Contacts</span>
+                      </span>
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </div>
+
+            <span className="h-12 w-1 border-solid border-x-2 mx-2 border-red-900"></span>
+            <NavigationMenuList className="flex flex-row items-end justify-center" >
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    href="#top"
-                    scroll={true}
+                    href="https://github.com/jamesgitt"
                     className="navText flex transition-colors duration-200"
-                    style={{ fontFamily: 'Cambria, serif' }}
-                  >
-                    <span role="img" aria-label="Home" className="navText mt-2">
-
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox= "0 0 24 24" fill="currentColor" className="size-10">
-                        <path d="M19.006 3.705a.75.75 0 1 0-.512-1.41L6 6.838V3a.75.75 0 0 0-.75-.75h-1.5A.75.75 0 0 0 3 3v4.93l-1.006.365a.75.75 0 0 0 .512 1.41l16.5-6Z" />
-                        <path fillRule="evenodd" d="M3.019 11.114 18 5.667v3.421l4.006 1.457a.75.75 0 1 1-.512 1.41l-.494-.18v8.475h.75a.75.75 0 0 1 0 1.5H2.25a.75.75 0 0 1 0-1.5H3v-9.129l.019-.007ZM18 20.25v-9.566l1.5.546v9.02H18Zm-9-6a.75.75 0 0 0-.75.75v4.5c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75H9Z" clipRule="evenodd" />
-                      </svg>
-
-                    </span>
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="#about"
-                    scroll={true}
-                    className="navText flex transition-colors duration-200"
-                    style={{ fontFamily: 'Cambria, serif' }}
-                  >
-                    <span role="img" aria-label="Home" className="navText mt-2">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-10">
-                      <path fillRule="evenodd" d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15Zm4.125 3a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.351.92 7.47 7.47 0 0 1-3.522.877 7.47 7.47 0 0 1-3.522-.877.75.75 0 0 1-.351-.92ZM15 8.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15ZM14.25 12a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H15a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15Z" clipRule="evenodd" />
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >          
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlSpace="preserve"
+                      width="32"
+                      height="32"
+                      fillRule="evenodd"
+                      strokeLinejoin="round"
+                      strokeMiterlimit="2"
+                      clipRule="evenodd"
+                      viewBox="0 0 64 64"
+                    >
+                      <path id="Icons" fill="none" d="M0-192h1280v800H0z"></path>
+                      <g id="Icons1">
+                        <path
+                          id="github"
+                          fill="#740000"
+                          d="M32.029 8.345C18.759 8.345 8 19.104 8 32.378c0 10.617 6.885 19.624 16.435 22.803 1.202.22 1.64-.522 1.64-1.16 0-.569-.02-2.081-.032-4.086-6.685 1.452-8.095-3.222-8.095-3.222-1.093-2.775-2.669-3.514-2.669-3.514-2.182-1.492.165-1.462.165-1.462 2.412.171 3.681 2.477 3.681 2.477 2.144 3.672 5.625 2.611 6.994 1.997.219-1.553.838-2.612 1.526-3.213-5.336-.606-10.947-2.669-10.947-11.877 0-2.623.937-4.769 2.474-6.449-.247-.608-1.072-3.051.235-6.36 0 0 2.018-.646 6.609 2.464 1.917-.533 3.973-.8 6.016-.809 2.041.009 4.097.276 6.017.809 4.588-3.11 6.602-2.464 6.602-2.464 1.311 3.309.486 5.752.239 6.36 1.54 1.68 2.471 3.826 2.471 6.449 0 9.232-5.62 11.263-10.974 11.858.864.742 1.632 2.208 1.632 4.451 0 3.212-.029 5.804-.029 6.591 0 .644.432 1.392 1.652 1.157 9.542-3.185 16.421-12.186 16.421-22.8 0-13.274-10.76-24.033-24.034-24.033"
+                        ></path>
+                      </g>
                     </svg>
-
-                    </span>                    
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+
+
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    href="/contacts"
-                    className="navText flex transition-colors duration-200 hover:bg-red-700/60"
-                    style={{ fontFamily: 'Cambria, serif' }}
+                    href="https://www.linkedin.com/in/james-errol-concepcion-275740358/"
+                    className="navText flex transition-colors duration-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >          
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    viewBox="0 0 16 16"
                   >
-                    <span role="img" aria-label="Contact" className="navText mt-2">
-                    
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  className="size-10">
-                        <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
-                        <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
-                      </svg>
-
-                    </span>
+                    <path
+                      id="SVGRepo_iconCarrier"
+                      fill="#740000"
+                      d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728zM4.67 5.715a1.037 1.037 0 0 1-1.032-1.031c0-.566.466-1.032 1.032-1.032s1.031.466 1.032 1.032c0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78zM13.11 2H2.885A.88.88 0 0 0 2 2.866v10.268a.88.88 0 0 0 .885.866h10.226a.88.88 0 0 0 .889-.866V2.865a.88.88 0 0 0-.889-.864z"
+                    ></path>
+                  </svg>
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
+
+
+
           </NavigationMenu>
         </div>
       </div>

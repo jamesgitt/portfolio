@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -20,9 +22,24 @@
 
 body {
   background: var(--background);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Exo 2', Arial, sans-serif;
 }
 
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('/fonts/Exo_2/Exo2-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Exo 2';
+  src: url('/fonts/Exo_2/Exo2-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 html{
   scroll-behavior: smooth;
@@ -30,18 +47,39 @@ html{
 
 
 .icon{
-  width: 36;
-  height: 30;
-  filter: drop-shadow(0 0 0 #0000);
+  width: 9rem;
+  height: 7.5rem;
+  filter: drop-shadow(0 20px 13px rgba(0,0,0,0.15)) drop-shadow(0 8px 5px rgba(0,0,0,0.10));
+}
+
+.icon:hover{
+  transform: translateY(-2px) scale(1.035);
 }
 
 .textHeaderColor {
-  color: rgb(255, 219, 219);
+  color: rgb(116 0, 0);
 }
 
-.textParagraph{
-  color: rgb(255, 219, 219);
+.textParagraph {
+  color: rgb(116 0, 0);
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.85rem;
   letter-spacing: 0;
+  width: 48rem;;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fontBold {
+  font-family: "Exo 2", Arial sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.fontLight {
+  font-family: "Exo 2", Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }

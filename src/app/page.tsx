@@ -1,3 +1,4 @@
+"use client"
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ProfileRound from './components/ProfileRound'
@@ -28,77 +29,71 @@ export default function Home() {
           <Navbar />
         </div>
 
-
-
         {/* Add top padding to prevent overlap with fixed navbar */}
-        <main
-          className="webBg"
-          style={{ paddingTop: navbarHeight }}
-        >
-          <div className="w-full flex flex-row items-center gap-8 pl-28">
+        <section id="Home">
+          <main
+            className="webBg flex flex-col items-center min-h-screen"
+            style={{ paddingTop: navbarHeight }}
+          >
+                <div className="flex flex-col pb-48">
+                  <div className="flex flex-row items-center justify-center w-full">
+                    <PulsatingText
+                      text="AI"
+                      className="textHeaderColor font-black text-8xl mx-6 my-2 left"
+                    />
+                    <span className="text-4xl text-red-900 font-black">-</span>
+                    <PulsatingText
+                      text="BACKEND DEVELOPING"
+                      className="textHeaderColor font-bold text-4xl mx-6 py-2 text-left"
+                    />
+                    <span className="text-4xl text-red-900 font-black">-</span>
+                    <PulsatingText
+                      text="DATA ANALYSIS"
+                      className="textHeaderColor font-bold text-4xl mx-6 my-2 text-left"
+                    />
+                  </div>
+                  <PulsatingText
+                      text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact."
+                      className="textParagraph max-w-[40rem] "
+                    />
 
-            <div className="homePageCard backdrop-blur-sm mt-2">
-
-
-              <div className="flex flex-col items-center">
-                <div className="flex flex-col items-center">
-                  <PulsatingText text="AI" 
-                    className="textHeaderColor font-black text-8xl mx-10 my-2 text-center" />
-                  
-                  <PulsatingText text="BACKEND DEVELOPING" 
-                    className="textHeaderColor text-4xl mx-10 py-2 text-center" />
-
-                  <PulsatingText text="DATA ANALYSIS" 
-                    className="textHeaderColor text-4xl mx-10 my-2 text-center" />
-
-                  <PulsatingText text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact." 
-                  className="textParagraph py-4 px-4" />
+                  <PulsateElement>
+                    <div className="flex flex-row items-center justify-center gap-6 mt-2">
+                      <div className="icon flex items-center justify-center">
+                        <AIIcon />
+                      </div>
+                      <div className="icon flex items-center justify-center">
+                        <BackendIcon />
+                      </div>
+                      <div className="icon flex items-center justify-center">
+                        <DataAnalysisIcon />
+                      </div>
+                    </div>
+                  </PulsateElement>
                 </div>
-                <PulsateElement>
-                  <div className="flex flex-row items-center pl-8">
-                    
-                    <div className="w-36 h-30 drop-shadow-xl">
-                      <AIIcon />
-                    </div>
-                    <div className="w-36 h-30 drop-shadow-xl">
-                      <BackendIcon />
-                    </div>
-                    <div className="w-36 h-30 drop-shadow-xl">
-                      <DataAnalysisIcon />
-                    </div>
-                </div>
-                </PulsateElement>
-              </div>
+          </main>
+        </section>
 
 
-            </div>
-            
-
-            <div className="flex flex-col items-end">
-              <ProfileRound />
-            </div>
-
-
-          </div>
-        </main>
-
-
-
-        <section id="about">
+        {/* About section with pop-up animation on scroll */}
+        <section id="About">
           <main>
-            <div>
+            <div
+              className="about-fadein"
+            >
               <About />
             </div>
           </main>
         </section>
 
 
-
-        <main>
-          <div>
-            <Contact />
-          </div>
-        </main>
+        <section id="Contacts">
+          <main>
+            <div>
+              <Contact />
+            </div>
+          </main>
+        </section>
 
 
 

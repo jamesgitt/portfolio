@@ -1,36 +1,123 @@
-/* Dark red gradient background with subtle diagonal grey lines for main.web-bg */
-/* As you scroll, the background lines move (background-position-y is set via JS on scroll) */
-/* Add pulsating animation to the background */
+/* 
+  Static background for main.webBg:
+  - Animated gradient overlay and pattern removed
+  - No background animation
+*/
 main.webBg {
+  
   min-height: 100vh;
-  background-color: #580000;
-  background-image: url("https://www.transparenttextures.com/patterns/white-diamond.png");
-  background-attachment: fixed, fixed;
-  background-size: auto, cover;
-  background-repeat: repeat, no-repeat;
+  background-color: rgb(255, 219, 219);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
 }
 
+main.webBg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("https://www.transparenttextures.com/patterns/diagonal-striped-brick.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: fixed;
+}
+
+/* The rest of the card styles remain unchanged, but their animation is removed */
 .homePageCard {
-  background: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(116, 0, 0, 0.98) 0%, rgba(88, 0, 0, 0.98) 100%);
   border-radius: 1rem;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   padding: 2rem 2.5rem;
-  transition: box-shadow 0.3s, transform 0.3s;
-  /* Prevent the card from stretching all the way to the bottom */
+  transition: box-shadow 0.3s, transform 0.3s, background 0.5s;
   max-height: 95vh;
   max-width: 120vh;
-  min-width: 60vh;
+  min-width: 300vh;
   width: 100%;
   overflow-y: hidden;
   overflow-x: hidden;
+  /* Animation removed */
 }
 
 .homePageCard:hover {
   box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
   transform: translateY(-4px) scale(1.025);
+  background: linear-gradient(135deg, rgba(140, 0, 0, 1) 0%, rgba(100, 0, 0, 1) 100%);
 }
 
+.profileRoundCard {
+  background: linear-gradient(135deg, rgba(116, 0, 0, 0.98) 0%, rgba(88, 0, 0, 0.98) 100%);
+  border-radius: 50%;
+  box-shadow: 0 8px 32px 0 rgba(88, 0, 0, 0.18);
+  border: 2.5px solid rgba(255, 255, 255, 0.25);
+  padding: 0;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.5s;
+  max-width: 32rem;
+  max-height: 32rem;
+  width: 26rem;
+  height: 26rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Animation removed */
+}
+
+.profileRoundCard img {
+  width: 26rem;
+  height: 26rem;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  display: block;
+}
+
+.profileRoundCard:hover {
+  box-shadow: 0 12px 40px 0 rgba(88, 0, 0, 0.25);
+  transform: translateY(-4px) scale(1.035);
+  background: linear-gradient(135deg, rgba(140, 0, 0, 1) 0%, rgba(100, 0, 0, 1) 100%);
+}
+
+.videoCard {
+  background: linear-gradient(135deg, rgba(245, 245, 255, 0.18) 0%, rgba(200, 200, 255, 0.10) 100%);
+  border-radius: 2.25rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 88, 0.18);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding: 2rem 2.5rem;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.5s;
+  max-height: 95vh;
+  max-width: 80vh;
+  min-width: 40vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Animation removed */
+}
+
+.videoCard:hover {
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 88, 0.25);
+  transform: translateY(-4px) scale(1.025);
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(220,220,255,0.18) 100%);
+}
+
+.videoCard video,
+.videoCard iframe {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+  background: #000;
+  display: block;
+  /* Animation removed */
+}
