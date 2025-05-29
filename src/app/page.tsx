@@ -35,30 +35,30 @@ export default function Home() {
             className="webBg flex flex-col items-center min-h-screen"
             style={{ paddingTop: navbarHeight }}
           >
-                <div className="flex flex-col pb-48">
-                  <div className="flex flex-row items-center justify-center w-full">
+                <div className="grid flex-col items-center pb-48">
+                  <div className="ml-6 =mb-4 flex flex-row items-center justify-center w-full">
                     <PulsatingText
                       text="AI"
-                      className="textHeaderColor font-black text-8xl mx-6 my-2 left"
+                      className="text-indigo-500 font-black text-8xl my-2 text-left"
                     />
-                    <span className="text-4xl text-red-900 font-black">-</span>
+                    <span className="text-4xl mx-10 text-red-900 font-black">-</span>
                     <PulsatingText
                       text="BACKEND DEVELOPING"
-                      className="textHeaderColor font-bold text-4xl mx-6 py-2 text-left"
+                      className="text-gray-800 max-w-56 font-black text-4xl py-2 text-left"
                     />
-                    <span className="text-4xl text-red-900 font-black">-</span>
+                    <span className="text-4xl mx-10  text-red-900 font-black">-</span>
                     <PulsatingText
                       text="DATA ANALYSIS"
-                      className="textHeaderColor font-bold text-4xl mx-6 my-2 text-left"
+                      className="text-pink-500 max-w-48 font-black text-4xl my-2 text-left"
                     />
                   </div>
                   <PulsatingText
                       text="I build intelligent solutions, craft robust backends, and turn data into actionable insights, combining AI, backend development, and data analysis to deliver real-world impact."
-                      className="textParagraph max-w-[40rem] "
+                      className="textParagraph max-w-[40rem] font-semibold"
                     />
 
                   <PulsateElement>
-                    <div className="flex flex-row items-center justify-center gap-6 mt-2">
+                    <div className="flex flex-row items-center justify-center gap-28 mt-2">
                       <div className="icon flex items-center justify-center">
                         <AIIcon />
                       </div>
