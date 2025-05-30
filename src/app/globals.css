@@ -47,27 +47,19 @@ html{
 
 
 .icon{
-  width: 9rem;
-  height: 7.5rem;
   filter: drop-shadow(0 20px 13px rgba(0,0,0,0.15)) drop-shadow(0 8px 5px rgba(0,0,0,0.10));
-}
-
-.icon:hover{
-  transform: translateY(-2px) scale(1.035);
 }
 
 .textHeaderColor {
   color: rgb(116 0, 0);
 }
 
-
-
 .textParagraph {
-  color: rgb(116 0, 0);
+  color: rgb(0, 0, 0);
   text-align: left;
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   letter-spacing: 0;
-  width: 48rem;;
+  width: 32rem;;
   margin-left: auto;
   margin-right: auto;
 }
@@ -84,4 +76,23 @@ html{
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+}
+
+.pill-text {
+  display: inline-block;
+  max-width: 12rem;
+  max-height: 4rem;
+  width: 10rem;
+  height: 2rem;
+  padding: 0.2em;
+  background: transparent;
+  border: 2px solid #740000;
+  border-radius: 9999px;
+  color: #000;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
+  transition: background 0.2s, color 0.2s;
 }

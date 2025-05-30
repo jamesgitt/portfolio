@@ -1,36 +1,18 @@
-export function BackendIcon() {
-    return (
-      <svg
-        width="120"
-        height="120"
-        viewBox="0 0 120 120"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-md"
-        >
-        {/* Server Rack */}
-        <rect x="30" y="35" width="60" height="50" rx="4" fill="#cbd5e1" stroke="#64748b" strokeWidth="2" />
+import * as React from "react";
 
-        {/* Server Units */}
-        <rect x="35" y="40" width="50" height="10" rx="2" fill="#334155" />
-        <rect x="35" y="55" width="50" height="10" rx="2" fill="#334155" />
-        <rect x="35" y="70" width="50" height="10" rx="2" fill="#334155" />
+const BackendIcon: React.FC<React.SVGProps<SVGElement>> = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlSpace="preserve"
+    id="Capa_1"
+    width="80"
+    height="80"
+    fill="#000000"
+    version="1.1"
+    viewBox="0 0 94.504 94.504"
+  >
+    <path d="M93.918 45.833 69.799 21.714c-.75-.75-2.077-.75-2.827 0l-5.229 5.229a2 2 0 0 0 0 2.828L79.22 47.246 61.744 64.724a2 2 0 0 0 0 2.828l5.229 5.229c.375.375.884.587 1.414.587s1.039-.212 1.414-.587l24.117-24.118a2 2 0 0 0 0-2.83M32.759 64.724 15.285 47.248l17.477-17.475a2 2 0 0 0 0-2.828l-5.229-5.229a2 2 0 0 0-2.828 0L.585 45.833a2 2 0 0 0 0 2.829L24.704 72.78c.375.375.884.587 1.414.587s1.039-.212 1.414-.587l5.229-5.229a1.997 1.997 0 0 0-.002-2.827M60.967 13.6a2 2 0 0 0-1.19-.962l-4.239-1.251a2 2 0 0 0-2.484 1.352L33.375 79.382a2 2 0 0 0 1.351 2.484l4.239 1.251a1.996 1.996 0 0 0 2.484-1.352l19.679-66.644a2 2 0 0 0-.161-1.521"></path>
+  </svg>
+);
 
-        {/* Status Lights */}
-        <circle cx="75" cy="45" r="2" fill="#22c55e" />
-        <circle cx="75" cy="60" r="2" fill="#22c55e" />
-        <circle cx="75" cy="75" r="2" fill="#22c55e" />
-
-        {/* Database */}
-        <ellipse cx="60" cy="95" rx="15" ry="5" fill="#64748b" />
-        <path
-          d="M45 95V85C45 82.2386 51.7157 80 60 80C68.2843 80 75 82.2386 75 85V95"
-          stroke="#64748b"
-          strokeWidth="2"
-        />
-
-        {/* Connection Lines */}
-        <path d="M60 85V90" stroke="#64748b" strokeWidth="2" strokeDasharray="2 2" />
-      </svg>
-    )
-  }
+export default BackendIcon;

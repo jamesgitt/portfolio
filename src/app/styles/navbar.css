@@ -45,9 +45,9 @@
 
 /* Navigation text styles */
 .navText {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-family: "Exo 2", Arial, sans-serif;
-    color: rgb(116 0, 0);
+    color: rgb(0, 0, 0);
     padding-inline: 2px;
     transition:
         color 0.2s,
@@ -74,9 +74,9 @@
 
 /* Logo text styles */
 .logoNavText {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-family: "Exo 2", Arial, sans-serif;
-    color: rgb(116 0, 0);
+    color: rgb(116, 0, 0);
     transition: color 0.2s, transform 0.2s;
     user-select: none;
     letter-spacing: 0.05em;
@@ -90,9 +90,9 @@
 
 /* Typing text styles */
 .typingNavText {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-family: "Exo 2", Arial, sans-serif;
-    color: rgb(116 0, 0);
+    color: rgb(0, 0, 0);
     transition: color 0.2s, transform 0.2s;
     user-select: none;
 }
@@ -100,30 +100,5 @@
 .typingNavText:hover {
     cursor: default;
     transform: translateY(-2px) scale(1.025);
-    color: rgb(116 0, 0);
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .logoNavText {
-        font-size: 2.1rem;
-    }
-    .navText {
-        font-size: 1.1rem;
-    }
-    .typingNavText {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .logoNavText {
-        font-size: 1.3rem;
-    }
-    .navText {
-        font-size: 0.95rem;
-    }
-    .typingNavText {
-        font-size: 0.85rem;
-    }
+    color: rgb(116, 0, 0);
 }

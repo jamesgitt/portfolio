@@ -4,15 +4,15 @@
   - No background animation
 */
 main.webBg {
-  
   min-height: 100vh;
-  background-color: rgb(255, 219, 219);
+  background: rgb(255, 219, 219);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
+  z-index: 0;
 }
 
 main.webBg::before {
@@ -22,9 +22,11 @@ main.webBg::before {
   z-index: 0;
   pointer-events: none;
   background-image: url("https://www.transparenttextures.com/patterns/diagonal-striped-brick.png");
+  background-position: relative;
   background-repeat: repeat;
   background-size: auto;
-  background-attachment: fixed;
+  opacity: 0.6;
+  /* Ensures the pattern overlays the background color */
 }
 
 /* The rest of the card styles remain unchanged, but their animation is removed */
@@ -57,10 +59,10 @@ main.webBg::before {
   border: 2.5px solid rgba(255, 255, 255, 0.25);
   padding: 0;
   transition: box-shadow 0.3s, transform 0.3s, background 0.5s;
-  max-width: 32rem;
-  max-height: 32rem;
-  width: 26rem;
-  height: 26rem;
+  max-width: 36rem;
+  max-height: 36rem;
+  width: 36rem;
+  height: 36rem;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -69,8 +71,8 @@ main.webBg::before {
 }
 
 .profileRoundCard img {
-  width: 26rem;
-  height: 26rem;
+  width: 36rem;
+  height: 36rem;
   object-fit: cover;
   object-position: top;
   border-radius: 50%;
@@ -83,15 +85,23 @@ main.webBg::before {
   background: linear-gradient(135deg, rgba(140, 0, 0, 1) 0%, rgba(100, 0, 0, 1) 100%);
 }
 
+@keyframes fadeInVideoCard {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .videoCard {
-  background: linear-gradient(135deg, rgba(245, 245, 255, 0.18) 0%, rgba(200, 200, 255, 0.10) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(220,220,255,0.18) 100%);
   border-radius: 2.25rem;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 88, 0.18);
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   padding: 2rem 2.5rem;
-  transition: box-shadow 0.3s, transform 0.3s, background 0.5s;
   max-height: 95vh;
   max-width: 80vh;
   min-width: 40vh;
@@ -101,7 +111,8 @@ main.webBg::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Animation removed */
+  opacity: 0;
+  animation: fadeInVideoCard 0.9s cubic-bezier(0.4,0,0.2,1) forwards;
 }
 
 .videoCard:hover {
@@ -119,5 +130,6 @@ main.webBg::before {
   box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
   background: #000;
   display: block;
-  /* Animation removed */
+  opacity: 0;
+  animation: fadeInVideoCard 1.1s cubic-bezier(0.4,0,0.2,1) 0.2s forwards;
 }

@@ -1,14 +1,15 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, ReactNode } from 'react';
 
 interface PulsatingTextProps {
-  text: string;
+  children?: ReactNode;
+  text?: string;
   className?: string;
 }
 
-export default function PulsatingText({ text, className = '' }: PulsatingTextProps) {
+export default function PulsatingText({ text, children, className = '' }: PulsatingTextProps) {
   const ref = useRef<HTMLSpanElement>(null);
 
   // Get scroll progress for the element (0 = top of viewport, 1 = bottom)
@@ -40,7 +41,7 @@ export default function PulsatingText({ text, className = '' }: PulsatingTextPro
         display: 'inline-block',
       }}
     >
-      {text}
+      {children ?? text}
     </motion.span>
   );
 }
