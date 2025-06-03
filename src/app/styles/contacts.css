@@ -1,0 +1,103 @@
+
+.contactCard {
+    background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(220,220,255,0.18) 100%);
+    border-radius: 2.25rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 88, 0.18);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding: 2rem 2.5rem;
+    transition: box-shadow 0.3s, transform 0.3s, background 0.5s;
+    max-height: 95vh;
+    max-width: 44rem;
+    min-width: 44rem;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  
+  .contactCard:hover {
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 88, 0.25);
+    transform: translateY(-4px) scale(1.025);
+    background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(220,220,255,0.18) 100%);
+  }
+
+  .formLabel{
+    font-weight: 600;
+    font-size: 1.125rem; /* lg size */
+    color:#000000;
+  }
+
+
+  .reachMeHeader{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    }
+    
+
+  .reachMeText{
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  }
+
+ 
+  .reachMeRe{
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+  }
+
+  .reachMeRe:hover{
+    font-weight: 300;
+    opacity: 0.7;
+    color: rgb(116, 0, 0);
+    transform: translateY(-1px) scale(1.025);
+  }
+
+
+  .inputContact {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d1d5db; /* gray-300 */
+    border-radius: 0.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #222;
+    background: #fff;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .inputContact:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #740000;
+    border-color: #740000;
+  }
+
+  
+  .inputMessage {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d1d5db; /* gray-300 */
+    border-radius: 0.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #222;
+    background: #fff;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    min-height: 120px;
+  }
+
+  .inputMessage:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #740000;
+    border-color: #740000;
+  }

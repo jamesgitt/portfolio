@@ -33,7 +33,7 @@ x
 
           <section
             id="Home"
-            className="min-h-screen"
+            className="min-h-screen pb-[48rem]"
             style={{ paddingTop: navbarHeight }}
           >
             <div className="flex flex-col items-center justify-center gap-12 mt-12 ml-12">
@@ -87,29 +87,34 @@ x
             </div>
           </section>
 
-          <section id="About">
+          <section id="About" className="min-h-screen pb-[48rem]">
             <div>
               <About />
             </div>
           </section>
+          <section id="Projects" className="min-h-screen pb-[24rem]">
+            <div>
+              {/* Projects Section */}
+              <h2 className="text-6xl font-bold text-red-900 mb-12 text-center">Projects</h2>
+              <Projects />
+            </div>
+          </section>
 
+          <section id="Skills" className="min-h-screen pb-[24rem]">
+            <div>
+              {/* Skills Section */}
+              <h2 className="text-6xl font-bold text-red-900 mb-12 text-center">Skills</h2>
+              <Skills />
+            </div>
+          </section>
+
+          
           <section id="Contacts">
             <div>
               <Contact />
             </div>
           </section>
 
-          <section>
-            <div>
-              <Projects />
-            </div>
-          </section>
-
-          <section>
-            <div>
-              <Skills />
-            </div>
-          </section>
 
           <section>
             <div>

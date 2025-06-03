@@ -1,4 +1,3 @@
-import PulsatingText from '../components/PulsatingText'
 import PulsateElement from '../components/PulsateElement'
 import Link from 'next/link';
 
@@ -6,7 +5,7 @@ import Link from 'next/link';
 export default function About() {
     return (
       <main className="flex flex-col items-center justify-center">
-        
+        <PulsateElement>
           <div className="videoCard">
             <video
             src="./videos/videoDeepfakeDetection.mp4"
@@ -24,16 +23,16 @@ export default function About() {
                 <h1 className="text-red-900 text-6xl font-bold mt-8">Filipino Voice DeepFake Detection</h1>
                 <p className="text-black text-2xl font-light text-center mx-12">A study I collaborated in, wherein us researchers gathered and preprocessed real and deepfaked Filipino Audio Data, and used multiple models to evaluate which method is most effective. Pioneer in FIlipino language deepfake detection.</p>
                   <div className="flex flex-row flex-wrap gap-2 justify-center">
-                    <p className="pill-text">Python</p>
-                    <p className="pill-text">TensorFlow</p>
-                    <p className="pill-text">Gradient Boosting</p>
-                    <p className="pill-text">Decision Tree</p>
-                    <p className="pill-text">Random Forest</p>
-                    <p className="pill-text">Extra Trees</p>
-                    <p className="pill-text">ResNet-50</p>
-                    <p className="pill-text">VGG-16</p>
-                    <p className="pill-text">HuBERT</p>
-                    <p className="pill-text">Wav2Vec2</p>
+                    <p className="pilledText">Python</p>
+                    <p className="pilledText">TensorFlow</p>
+                    <p className="pilledText">Gradient Boosting</p>
+                    <p className="pilledText">Decision Tree</p>
+                    <p className="pilledText">Random Forest</p>
+                    <p className="pilledText">Extra Trees</p>
+                    <p className="pilledText">ResNet-50</p>
+                    <p className="pilledText">VGG-16</p>
+                    <p className="pilledText">HuBERT</p>
+                    <p className="pilledText">Wav2Vec2</p>
                   </div>
                 <div className="flex flex-row items-center justify-center gap-4">
                   <Link
@@ -83,7 +82,7 @@ export default function About() {
               </div>
             </div>
           </div> 
-
+        </PulsateElement>
       </main>
     );
   }
