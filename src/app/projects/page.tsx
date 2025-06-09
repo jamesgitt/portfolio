@@ -249,6 +249,7 @@ const projects = [
     },
 ];
 
+
 export default function Projects() {
     return (
         <main className="flex flex-col items-center justify-center">
@@ -257,7 +258,14 @@ export default function Projects() {
                     <CarouselContent>
                         {projects.map((project, idx) => (
                             <CarouselItem key={idx}>
-                                <div className="videoCard my-5 ml-3">
+                                <div className="videoCard my-4 ml-4 relative">
+                                    {/* Simple navigation buttons inside the videoCard */}
+                                    <div className="absolute left-[-6rem] bottom-12 z-10">
+                                        <CarouselPrevious className="arrowButton" />
+                                    </div>
+                                    <div className="absolute left-[23rem] bottom-12 z-10">
+                                        <CarouselNext className="arrowButton"/>
+                                    </div>
                                     <video
                                         src={project.videoSrc}
                                         width="400"
@@ -297,10 +305,7 @@ export default function Projects() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <div className="flex justify-between items-center mt-4">
-                        <CarouselPrevious className="arrowButton"/>
-                        <CarouselNext className="arrowButton" />
-                    </div>
+                    {/* Remove the old navigation buttons outside the videoCard */}
                 </Carousel>
             </PulsateElement>
         </main>
