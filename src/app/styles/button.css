@@ -464,4 +464,65 @@
   }
 
 
-  
+  /* Arrow Circle Buttons */
+  .arrowButton {
+    @extend .buttonCommon;
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
+    max-width: 3rem;
+    max-height: 3rem;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #740000 0%, #b31217 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px 0 rgba(116, 0, 0, 0.10);
+    cursor: pointer;
+    transition:
+      background 0.3s cubic-bezier(0.4,0,0.2,1),
+      box-shadow 0.25s cubic-bezier(0.4,0,0.2,1),
+      transform 0.18s cubic-bezier(0.4,0,0.2,1),
+      color 0.2s;
+    outline: none;
+    animation: buttonPulse 2s infinite;
+    border: none;
+  }
+
+  .arrowButton:hover,
+  .arrowButton:focus {
+    background: linear-gradient(90deg, #b31217 0%, #740000 100%);
+    box-shadow: 0 8px 32px 0 rgba(116, 0, 0, 0.18);
+    color: #fff;
+    opacity: 0.7;
+  }
+
+  /* Optional: for light variant */
+  .arrowButton.light {
+    background: linear-gradient(90deg, #fff 0%, #ffeaea 100%);
+    color: #740000;
+    animation: none;
+  }
+
+  .arrowButton.light:hover,
+  .arrowButton.light:focus {
+    background: linear-gradient(90deg, #ffeaea 0%, #fff 100%);
+    color: #b31217;
+  }
+
+  /* Optional: arrow icons using pseudo-elements if needed */
+  .arrowButton.prev::before {
+    content: '←';
+    font-size: 1.5rem;
+    display: block;
+  }
+
+  .arrowButton.next::before {
+    content: '→';
+    font-size: 1.5rem;
+    display: block;
+  }

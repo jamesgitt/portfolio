@@ -92,13 +92,7 @@ x
               <About />
             </div>
           </section>
-          <section id="Projects" className="min-h-screen pb-[24rem]">
-            <div>
-              {/* Projects Section */}
-              <h2 className="text-6xl font-bold text-red-900 mb-12 text-center">Projects</h2>
-              <Projects />
-            </div>
-          </section>
+
 
           <section id="Skills" className="min-h-screen pb-[24rem]">
             <div>

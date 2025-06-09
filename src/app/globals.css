@@ -79,20 +79,33 @@ html{
 }
 
 .pilledText {
-  display: inline-block;
-  max-width: 12rem;
-  max-height: 4rem;
-  width: 10rem;
-  height: 2rem;
-  padding: 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 8rem;
+  max-height: 3em;
+  width: fit-content;
+  height: 1rem;
   background: transparent;
-  border: 2px solid #740000;
+  border: 1px solid #740000;
   border-radius: 9999px;
   color: #000;
-  font-size: 1rem;
+  font-size: 0.6rem;
   font-family: inherit;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
   line-height: 1.5;
   transition: background 0.2s, color 0.2s;
+  padding: 0.25em 1em;
+}
+
+.pilledText:hover{
+  opacity: 0.7;
+  transform: translateY(-1px) scale(1.025);
+  color: rgb(116, 0, 0);
+  transition:
+      color 0.1s,
+      font-weight 0.1s,
+      opacity 0.1s,
+      transform 0.1s;
 }
