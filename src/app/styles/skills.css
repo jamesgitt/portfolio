@@ -1,0 +1,173 @@
+.Skills-module {
+  width: 1080px;
+  max-width: 1080px;
+  min-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Skills-module .carousel-container {
+  width: 1080px;
+  max-width: 1080px;
+  min-width: 1080px;
+  margin: 0 auto;
+}
+
+.Skills-module .carousel-content {
+  display: flex;
+  align-items: center;
+  height: 32rem;
+  width: 1080px;
+  max-width: 1080px;
+  min-width: 1080px;
+  margin: 0 auto;
+}
+
+.Skills-module .carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  position: relative;
+  width: 1080px;
+  max-width: 1080px;
+  min-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Skills-module .carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 1080px;
+  max-width: 1080px;
+  min-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Skills-module .carousel-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  border: 2px solid #d1d5db;
+  background: #fff;
+  transition: background 0.2s, border-color 0.2s;
+  outline: none;
+  cursor: pointer;
+}
+
+.Skills-module .carousel-dot.selected {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.Skills-module .carousel-dot:focus {
+  box-shadow: 0 0 0 2px #60a5fa;
+}
+
+.skillsCard-module {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 6px 0 rgba(0,0,0,0.04);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 340px;
+  max-width: 340px;
+  min-height: 380px;
+  max-height: 380px;
+  height: 380px;
+  width: 340px;
+  aspect-ratio: 340 / 380;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  transition: box-shadow 0.2s, transform 0.2s;
+  backdrop-filter: blur(2px);
+}
+
+.skillsCard-module:hover, .skillsCard-module:focus-within {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.22), 0 3px 12px 0 rgba(0,0,0,0.10);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.skillsCard-module .skill-icon {
+  margin-bottom: 1rem;
+}
+
+.skillsCard-module h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.skillsCard-module .skill-score {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skillsCard-module .skill-score .stars {
+  color: #fbbf24;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.skillsCard-module .skill-score .score-value {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.skillsCard-module .certifications {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skillsCard-module .certifications-title {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.skillsCard-module .certifications-list {
+  list-style: disc inside;
+  color: #4b5563;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 0%;
+  min-height: 3.5em;
+}
+
+.skillsCard-module .certifications-list li {
+  line-height: 1.4;
+}
+
+.skillsCard-module .certifications-list li .cert-name {
+  font-weight: 500;
+}
+
+.skillsCard-module .certifications-list li .cert-meta {
+  margin-left: 0.25rem;
+  color: #6b7280;
+  font-size: 0.93em;
+}
+
+.skillsCard-module .certifications-list li.invisible {
+  visibility: hidden;
+  user-select: none;
+  height: 1.2em;
+}
