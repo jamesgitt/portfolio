@@ -36,22 +36,21 @@ x
             className="min-h-screen pb-[48rem]"
             style={{ paddingTop: navbarHeight }}
           >
-            <div className="flex flex-col items-center justify-center gap-12 mt-12 ml-12">
+            <div className="flex flex-col items-center justify-center gap-12 ml-12">
 
 
               <div className="flex flex-row items-center justify-center">
-                <PulsatingText className="max-w-[48rem] text-center">
+                <PulsatingText className="max-w-[78rem] text-center">
                   <span className="text-red-900 font-black text-6xl text-center">
                   ARTIFICIAL INTELLIGENCE,
-                  </span> 
-                  <span className="text-6xl mx-6 text-red-900 font-black"> </span>
                   <span className="text-black font-semibold text-6xl text-center"> BACKEND DEVELOPING, </span>
                   <span className="text-black font-semibold text-6xl text-center">& DATA ANALYSIS</span>
+                  </span> 
                 </PulsatingText>
               </div>
 
 
-              <div className="grid lg:grid-cols-2 gap-16 py-8 items-center justify-center">
+              <div className="grid lg:grid-cols-2 gap-16 items-center justify-center">
 
                 <div>
                   <PulsateElement>

@@ -27,14 +27,14 @@ export default function Contacts() {
                             return (
                                 <>
                                     <span className="text-left text-4xl font-semibold text-red-900"> <CurrentTime className="text-left text-4xl font-semibold text-red-900"/> where I'm from!</span>
-                                    <div className="text-left text-2xl mt-2 text-green-700 font-semibold"> <span className="text-2xl mt-2 text-black font-semibold">Reach me however you like, </span>I'm probably available!</div>
+                                    <div className="text-left text-2xl mt-2 text-green-700 font-semibold"> <span className="text-2xl mt-2 text-black font-semibold">Reach me however you like, </span>I'm available right now!</div>
                                 </>
                             );
                         } else {
                             return (
                                 <>
-                                    <CurrentTime />
-                                    <div className="text-left text-2xl mt-2 text-yellow-600 font-semibold"> <span className="text-2xl mt-2 text-black font-semibold">Reach me however you like, </span>I'm probably not available though.</div>
+                                    <CurrentTime className="text-left text-4xl font-semibold text-red-900"/>
+                                    <div className="text-left text-2xl mt-2 text-yellow-600 font-semibold"> <span className="text-2xl mt-2 text-black font-semibold">Reach me however you like, </span>I'm probably not available right now though.</div>
                                 </>
                             );
                         }
