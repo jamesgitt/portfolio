@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 
 interface TypingTextProps {
   text: string;
@@ -28,14 +28,26 @@ export default function TypingText({
 
   // We'll allocate 40% to typing, 10% pause, 40% erasing, 10% pause
   const typingDuration = totalDuration * 0.4;
-  const typingSpeed = speed ?? (chars > 0 ? typingDuration / chars : 100);
+  const typingSpeed = useMemo(
+    () => speed ?? (chars > 0 ? typingDuration / chars : 100),
+    [speed, chars, typingDuration]
+  );
 
-  const typingPause = pause ?? totalDuration * 0.1;
+  const typingPause = useMemo(
+    () => pause ?? totalDuration * 0.1,
+    [pause, totalDuration]
+  );
 
   const erasingDuration = totalDuration * 0.4;
-  const erasingSpeed = eraseSpeed ?? (chars > 0 ? erasingDuration / chars : 50);
+  const erasingSpeed = useMemo(
+    () => eraseSpeed ?? (chars > 0 ? erasingDuration / chars : 50),
+    [eraseSpeed, chars, erasingDuration]
+  );
 
-  const erasingPause = erasePause ?? totalDuration * 0.1;
+  const erasingPause = useMemo(
+    () => erasePause ?? totalDuration * 0.1,
+    [erasePause, totalDuration]
+  );
 
   const [displayed, setDisplayed] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -44,29 +56,35 @@ export default function TypingText({
     let isCancelled = false;
 
     async function animateTyping() {
+      // Capture the current values at the start
+      const _typingSpeed = typingSpeed;
+      const _typingPause = typingPause;
+      const _erasingSpeed = erasingSpeed;
+      const _erasingPause = erasingPause;
+
       // Typing
       for (let i = 1; i <= text.length; i++) {
         if (isCancelled) return;
         setDisplayed(i);
         await new Promise(res => {
-          timeoutRef.current = setTimeout(res, typingSpeed);
+          timeoutRef.current = setTimeout(res, _typingSpeed);
         });
       }
       // Pause at end
       await new Promise(res => {
-        timeoutRef.current = setTimeout(res, typingPause);
+        timeoutRef.current = setTimeout(res, _typingPause);
       });
       // Erasing
       for (let i = text.length - 1; i >= 0; i--) {
         if (isCancelled) return;
         setDisplayed(i);
         await new Promise(res => {
-          timeoutRef.current = setTimeout(res, erasingSpeed);
+          timeoutRef.current = setTimeout(res, _erasingSpeed);
         });
       }
       // Pause before typing again
       await new Promise(res => {
-        timeoutRef.current = setTimeout(res, erasingPause);
+        timeoutRef.current = setTimeout(res, _erasingPause);
       });
       if (!isCancelled) animateTyping();
     }
@@ -78,8 +96,7 @@ export default function TypingText({
       isCancelled = true;
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [text, typingSpeed, typingPause, erasingSpeed, erasingPause]);
+  }, [text]);
 
   return (
     <div className={className}>

@@ -21,14 +21,23 @@
         }
 
         const CurrentTime: React.FC<CurrentTimeProps> = ({ className = '' }) => {
-            const [time, setTime] = useState(getPhilippineTime());
+            const [mounted, setMounted] = useState(false);
+            const [time, setTime] = useState('');
 
             useEffect(() => {
+                setMounted(true);
+            }, []);
+
+            useEffect(() => {
+                if (!mounted) return;
+                setTime(getPhilippineTime());
                 const interval = setInterval(() => {
                     setTime(getPhilippineTime());
                 }, 1000);
                 return () => clearInterval(interval);
-            }, []);
+            }, [mounted]);
+
+            if (!mounted) return null;
 
             return (
                 <span className={className}>{time}</span>

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import SkillCard, { Skill } from "../components/SkillCard";
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "../components/Carousel";
+import Autoscroll from "embla-carousel-auto-scroll";
 
+// --- Skill Data (with Deployment and API replaced by Deployment and APIs) ---
 const skills: Skill[] = [
+  // ... (unchanged skill data)
   {
     name: "Java",
     category: "Programming",
@@ -270,7 +273,7 @@ const skills: Skill[] = [
   },
   {
     name: "FastAPI",
-    category: "Deployment and API",
+    category: "Deployment and APIs",
     icon: (
       <svg width="56" height="56" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="12" fill="#009688" />
@@ -284,7 +287,7 @@ const skills: Skill[] = [
   },
   {
     name: "SSH",
-    category: "Deployment and API",
+    category: "Deployment and APIs",
     icon: (
       <svg width="56" height="56" viewBox="0 0 32 32" fill="none">
         <rect x="8" y="12" width="16" height="8" rx="2" fill="#333" />
@@ -300,7 +303,7 @@ const skills: Skill[] = [
   }
 ];
 
-// Carousel Dots component
+// --- Carousel Dots Component ---
 function CarouselDots({
   count,
   selectedIdx,
@@ -318,8 +321,8 @@ function CarouselDots({
           type="button"
           aria-label={`Go to slide ${idx + 1}`}
           className={`w-3 h-3 rounded-full border-2 transition-colors duration-200
-            ${selectedIdx === idx ? "bg-blue-500 border-blue-500" : "bg-white border-gray-300"}
-            focus:outline-none focus:ring-2 focus:ring-blue-400`}
+            ${selectedIdx === idx ? "bg-red-900 border-red-900" : "bg-white border-gray-300"}
+            focus:outline-none focus:ring-2 focus:ring-red-900`}
           onClick={() => onSelect(idx)}
         />
       ))}
@@ -327,48 +330,17 @@ function CarouselDots({
   );
 }
 
+// --- Main Component: Separate Carousels for Each Category with Different Options ---
 export default function Skills() {
-  // Embla API for controlling the carousel
-  const [emblaApi, setEmblaApi] = useState<any>(null);
-  const [selectedIdx, setSelectedIdx] = useState(0);
-
-  // Listen to carousel selection changes
-  useEffect(() => {
-    if (!emblaApi) return;
-    
-    const onSelect = () => {
-      const currentIndex = emblaApi.selectedScrollSnap();
-      setSelectedIdx(currentIndex);
-    };
-    
-    // Set initial state immediately
-    onSelect();
-    
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi]);
-
-  // Handler for dot click
-  const handleDotClick = (idx: number) => {
-    if (emblaApi) {
-      emblaApi.scrollTo(idx);
-    }
-  };
-
-  // Group skills by category
+  // Only 4 categories, all using "Deployment and APIs"
   const categories = [
     "Programming",
     "Data Analysis, Visualization, and Databases",
     "Artificial Intelligence, Deep and Machine Learning",
-    "Deployment and API"
+    "Deployment and APIs",
   ];
 
-  // Map category to skills
+  // Group skills by category
   const skillsByCategory: { [cat: string]: Skill[] } = {};
   for (const cat of categories) {
     skillsByCategory[cat] = [];
@@ -379,39 +351,58 @@ export default function Skills() {
     }
   }
 
-  // State for each carousel's emblaApi and selectedIdx
-  const [carouselStates, setCarouselStates] = useState(
-    categories.map(() => ({
-      emblaApi: null as any,
-      selectedIdx: 0,
-    }))
-  );
+  // Carousel options per category, now with Autoplay plugin
+  const carouselOptions: {
+    [cat: string]: {
+      opts?: any;
+      plugins?: any[];
+    };
+  } = {
+    "Programming": {
+      opts: { align: "center", loop: true, startIndex: 0 },
+      plugins: [Autoscroll({ startDelay: 1000, speed: 2, direction: "forward", stopOnMouseEnter: false})],
+    },
+    "Data Analysis, Visualization, and Databases": {
+      opts: { align: "center", loop: true, startIndex: 0},
+      plugins: [Autoscroll({ startDelay: 1000, speed: 2, direction: "backward", stopOnMouseEnter: false})],
+    },
+    "Artificial Intelligence, Deep and Machine Learning": {
+      opts: { align: "center", loop: true, startIndex: 0},
+      plugins: [Autoscroll({ startDelay: 1000, speed: 2, direction: "forward", stopOnMouseEnter: false})],
+    },
+    "Deployment and APIs": {
+      opts: { align: "center", loop: true, startIndex: 0},
+      plugins: [Autoscroll({ startDelay: 1000, speed: 2, direction: "backward", stopOnMouseEnter: false})],
+    },
+  };
 
-  // Handlers for each carousel
+  // For each category, maintain carousel state
+  const [emblaApis, setEmblaApis] = useState<(any | null)[]>(categories.map(() => null));
+  const [selectedIdxs, setSelectedIdxs] = useState<number[]>(categories.map(() => 0));
+
+  // Handler to set emblaApi for each carousel
   const handleSetApi = (catIdx: number) => (api: any) => {
-    setCarouselStates((prev) => {
+    setEmblaApis((prev) => {
       const next = [...prev];
-      next[catIdx] = { ...next[catIdx], emblaApi: api };
+      next[catIdx] = api;
       return next;
     });
   };
 
   // Listen to carousel selection changes for each carousel
   useEffect(() => {
-    categories.forEach((cat, catIdx) => {
-      const { emblaApi } = carouselStates[catIdx];
+    emblaApis.forEach((emblaApi, catIdx) => {
       if (!emblaApi) return;
 
       const onSelect = () => {
         const currentIndex = emblaApi.selectedScrollSnap();
-        setCarouselStates((prev) => {
+        setSelectedIdxs((prev) => {
           const next = [...prev];
-          next[catIdx] = { ...next[catIdx], selectedIdx: currentIndex };
+          next[catIdx] = currentIndex;
           return next;
         });
       };
 
-      onSelect();
       emblaApi.on("select", onSelect);
       emblaApi.on("reInit", onSelect);
 
@@ -422,47 +413,53 @@ export default function Skills() {
       };
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [carouselStates.map((s) => s.emblaApi).join(",")]);
+  }, [emblaApis]);
 
   // Handler for dot click for each carousel
   function handleDotClickFactory(catIdx: number) {
     return (idx: number) => {
-      const { emblaApi } = carouselStates[catIdx];
+      const emblaApi = emblaApis[catIdx];
       if (emblaApi) {
         emblaApi.scrollTo(idx);
       }
     };
   }
 
+  // Only show categories that have skills
+  const visibleCategories = categories.filter(
+    (cat) => skillsByCategory[cat] && skillsByCategory[cat].length > 0
+  );
+
   return (
     <main className="Skills-module">
-      {categories.map((cat, catIdx) => {
+      {visibleCategories.map((cat, catIdx) => {
         const catSkills = skillsByCategory[cat];
         if (!catSkills.length) return null;
+        const options = carouselOptions[cat] || {};
         return (
           <section key={cat} className="mb-12">
             <h2 className="text-2xl font-bold mb-4 text-center">{cat}</h2>
             <div className="carousel-container">
               <Carousel
-                opts={{ align: "center", loop: true, startIndex: 0 }}
+                opts={options.opts}
+                plugins={options.plugins}
                 setApi={handleSetApi(catIdx)}
               >
                 <CarouselContent className="carousel-content">
                   {catSkills.map((skill, idx) => (
                     <CarouselItem
                       key={idx}
-                      className={`basis-1/3 flex justify-center2`}
+                      className={`basis-1/3 flex justify-center`}
                     >
                       <SkillCard skill={skill} />
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                {/* Move prev/next to the start/end of the dots row */}
                 <div className="carousel-dots flex items-center justify-center gap-2 mt-4">
                   <CarouselPrevious />
                   <CarouselDots
                     count={catSkills.length}
-                    selectedIdx={carouselStates[catIdx]?.selectedIdx || 0}
+                    selectedIdx={selectedIdxs[catIdx] || 0}
                     onSelect={handleDotClickFactory(catIdx)}
                   />
                   <CarouselNext />

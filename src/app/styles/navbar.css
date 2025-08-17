@@ -45,7 +45,7 @@
 
 /* Navigation text styles */
 .navText {
-    font-size: 1.75rem;
+    font-size: 1.1667rem; /* 1.75rem * 0.6667 = ~1.1667rem (50% smaller) */
     font-family: "Exo 2", Arial, sans-serif;
     color: rgb(0, 0, 0);
     padding-inline: 2px;
@@ -110,7 +110,7 @@
 
 /* Logo text styles */
 .logoNavText {
-    font-size: 2rem;
+    font-size: 1.5rem; /* 2rem * 0.6667 = ~1.3333rem (50% smaller) */
     font-family: "Exo 2", Arial, sans-serif;
     color: rgb(116, 0, 0);
     transition: color 0.2s, transform 0.2s;
@@ -126,7 +126,7 @@
 
 /* Typing text styles */
 .typingNavText {
-    font-size: 1.25rem;
+    font-size: 0.8333rem; /* 1.25rem * 0.6667 = ~0.8333rem (50% smaller) */
     font-family: "Exo 2", Arial, sans-serif;
     color: rgb(0, 0, 0);
     white-space: nowrap;
@@ -139,4 +139,3 @@
     transform: translateY(-2px) scale(1.025);
     color: rgb(116, 0, 0);
 }
-
