@@ -1,0 +1,14 @@
+[root]
+homepage = "index.html"
+
+[dev]
+port = 3000
+reload = true
+
+[build]
+root = "src"
+entrypoints = ["src/main.tsx"]
+outdir = "dist"
+
+[transpiler]
+loader = "tsx"
